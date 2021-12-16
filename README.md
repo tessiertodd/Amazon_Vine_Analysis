@@ -1,6 +1,8 @@
 # Amazon_Vine_Analysis
 
-## Linear Regression to Predict MPG
+## Overview of the analysis
+We are tasked with looking at analyzing Amazon reviews from members of the paid Amazon Vine program, which is a service that manufacturers and publishers can get reviews on their products after the Vine members try the products.  We are going to look at one such dataset (category sports) to determine if there is bias towards favourable reviews from Vine members in the dataset.
+
 ### Slope Results:
 ![Slope results](https://github.com/tessiertodd/MechaCar_Statistical_Analysis/blob/main/Deliverable%201%20coefficients.png)
 
