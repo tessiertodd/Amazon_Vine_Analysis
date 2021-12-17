@@ -4,69 +4,39 @@
 We are tasked with looking at analyzing Amazon reviews from members of the paid Amazon Vine program, which is a service that manufacturers and publishers can get reviews on their products after the Vine members try the products.  We are going to look at one such dataset (category sports) to determine if there is bias towards favourable reviews from Vine members in the dataset.
 
 ### Results:
-In order to ensure the data we were looking at for our analysis had enough relevant information to draw conclusions from, we narrowed down the data we used for our analysis by removing any records that had less than 20 votes and then from that subset of data we removed all records with less than 50% of helpful votes. We then split the data into two tables so we could analyse each, one where vine reviews were paid for, and one with vine reviews not paid for.
+In order to ensure the data we were looking at for our analysis was of high enough quality for us to be comfortable to draw conclusions from, we narrowed down the data we used for our analysis by removing any records that had less than 20 votes and created a new table with all the records that had 20 or more votes.
 
-![Slope results](https://github.com/tessiertodd/MechaCar_Statistical_Analysis/blob/main/Deliverable%201%20coefficients.png)
+![20 votes and up](https://github.com/tessiertodd/Amazon_Vine_Analysis/blob/main/images/Deliverable%202%20-%20Q1.png)
 
-### Summary Stats:
-![Linear chart results](https://github.com/tessiertodd/MechaCar_Statistical_Analysis/blob/main/Deliverable%201.png)
+We then removed all records with less than 50% of helpful votes and created a new table.
 
-The vehicle_length and ground_clearance provide non-random amount of variance to the MPG values as p-values are below 0.05.
+![50% helpful votes](https://github.com/tessiertodd/Amazon_Vine_Analysis/blob/main/images/Deliverable%202%20-%20Q2.png)
 
-The slope of the line is not considered to be 0 as the p-value of the model is below 0.05 at 5.35e-11.
+We then split the data into two tables so we could analyze each, one where vine reviews,
 
-This linear model effectively predicts the MPG of MechaCar prototypes as the r-squared value of 0.7149 is a strong level of correlation.
+![Vine paid](https://github.com/tessiertodd/Amazon_Vine_Analysis/blob/main/images/Deliverable%202%20-%20Q3.png)
 
+and one with non-vine reviews.
 
+![Vine not paid](https://github.com/tessiertodd/Amazon_Vine_Analysis/blob/main/images/Deliverable%202%20-%20Q4.png)
 
-## Summary Statistics on Suspension Coils
-### Code Used:
-![Code snippet](https://github.com/tessiertodd/MechaCar_Statistical_Analysis/blob/main/Deliverable%202%20-%20code.png)
+Now with the two tables with vine reviews and non-vine reviews we could see if the 5 star reviews (high) were skewed by people who were being paid by vine program.
 
-### Total Summary Stats:
-![Total summary](https://github.com/tessiertodd/MechaCar_Statistical_Analysis/blob/main/Deliverable%202%20-%20total_summary.png)
+![Vine and non-vine analysis](https://github.com/tessiertodd/Amazon_Vine_Analysis/blob/main/images/Deliverable%202%20-%20Q5.png)
 
-### Statistics by Lot:
-![Lot stats](https://github.com/tessiertodd/MechaCar_Statistical_Analysis/blob/main/Deliverable%202%20-%20lot_summary.png)
-
-The overall expectation on performance of the suspension coils is that they perform at a mean of 1498.78 PSI, with a variance of 62.29 and standard deviation of 7.89.
-
-Lot 1 requirements are mean PSI of 1500, variance of 0.98 and standard deviation of 0.99
-
-Lot 2 requirements are mean PSI of 1500.20, variance of 7.47 and standard deviation of 2.73
-
-Lot 3 requirements are mean PSI of 1496.14, variance of 170.29 and standard deviation of 13.05
-
-The variability on lot 1 and 2 is much tigher than lot 3, which is driving the overall requirements up.
-t
-
-## T-Tests on Suspension Coils
-### T-Test of All Manufacturing Lots Against Mean PSI of Population:
-![All lots versus population](https://github.com/tessiertodd/MechaCar_Statistical_Analysis/blob/main/Deliverable%203%20-%20all%20lots%20together%20versus%20population.png)
-
-Since the p-value of the t-test if more than 0.05 we cannot reject the null hypothesis, and as such the mean of 3 lots together and the population means are statistically similar.
+- There were 334 vine reviews and 61,614 non-vine reviews.
+- There were 139 5-star vine reviews and 32,665 5-star non-vine reviews.
+- The vine 5-star reviews were 41.6% of total reviews, while the non-vine 5-star reviews were 53.0% of total reviews. 
 
 
-### T-Test of Each of 3 Manufacturing Lots Individually Against Mean PSI of Population:
-![Each lot versus population](https://github.com/tessiertodd/MechaCar_Statistical_Analysis/blob/main/Deliverable%203%20-%20each%20lot%20versus%20population.png)
+### Summary:
+Based on the fact that vine members had a lower % at 41.6% of 5-star reviews versus non-vine members at 53.0%, I would conclude that the vine members do not show a bias towards giving higher ratings despite that fact that they are being paid to provide those ratings for products in the sports category.
 
-Since the p-values of the t-test for Lot 1 and Lot 2 are more than 0.05 we cannot reject the null hypothesis, thus their means are statistically similar the population mean. Lot 3 on the other hand with a p-value of 0.04168 is considered statistically different than the population mean of 1500.
+There is still one piece of information verified_purchases that we did not explore. It would be interesting to see if further breaking down our vine datasets for vine between verified_purchases Yes and No to see if that would skew either the vine members.
+
+We did the analysis on the two datasets with a subset of the original data.  We could also look at the original dataset, split that data between vine and non-vine and see if we are seeing any bias in the broader data... noting however that we are much more comfortable with the data we used as we made adjustments to ensure we had most complete and relevant data for our analysis.
 
 
-## Study Design: MechaCar vs Competition
-In order to do a comparison between MechaCar and their competitor, I would recommend we class the different vehicles to ensure we are comparing metrics within a particular class of vehicles, as consumers do that type of comparison when they are looking to buy a vehicle.  I also believe that it would be important for MechaCar to potentially focus on different metrics for the different classes of vehicles. I would like to focus in on the high-performance class of vehicles for MechaCar and their competition. I would like to study a couple of metrics that would be useful for MechaCar to understand how they stand up to their competition in this class - 1) cost per horsepower and 2) time for 0-60mph.
 
-Once we have collected the information from various competitors of MechaCar, we would run a t.test of MechaCar for each of these metrics we have chosen to see how the means compare. Let's assume we had data for 5 competitors, then we would have to run 5 t-tests for each metric to compare MechaCar to each of their competitors.
 
-### Cost/Horsepower:
-Null Hypothesis: There is no statistical difference between the ***Cost/Horsepower*** for MechaCar's mean and their competitor's.
-Alternative Hypothesis: There is a statistical difference between the ***Cost/Horsepower*** for MechaCar's mean and their competitor's.
 
-### Time for 0-60mph:
-Null Hypothesis: There is no statistical difference between the ***Time for 0-60mph*** for MechaCar's mean and their competitor's.
-Alternative Hypothesis: There is a statistical difference between the ***Time for 0-60mph*** for MechaCar's mean and their competitor's.
-
-### Overview of results and recommended next steps:
-Once we have run the t-test in R, we will be able to look at the p-values of each of the 10 different tests (5 for each of the two metrics). If the p-values are higher than 0.05 we will not be able to reject the null and MechaCar and that competitor will be considered that their metrics are not statistically different.
-
-Once it has been determined which competitors MechaCar is advantageous on: better to have a lower ***Cost/Horsepower*** and better to have a lower ***Time to 60/mph***, then they would be able to focus on using those advantages in their marketing and sales positioning with potential buyers.
