@@ -3,7 +3,9 @@
 ## Overview of the analysis
 We are tasked with looking at analyzing Amazon reviews from members of the paid Amazon Vine program, which is a service that manufacturers and publishers can get reviews on their products after the Vine members try the products.  We are going to look at one such dataset (category sports) to determine if there is bias towards favourable reviews from Vine members in the dataset.
 
-### Slope Results:
+### Results:
+In order to ensure the data we were looking at for our analysis had enough relevant information to draw conclusions from, we narrowed down the data we used for our analysis by removing any records that had less than 20 votes and then from that subset of data we removed all records with less than 50% of helpful votes. We then split the data into two tables so we could analyse each, one where vine reviews were paid for, and one with vine reviews not paid for.
+
 ![Slope results](https://github.com/tessiertodd/MechaCar_Statistical_Analysis/blob/main/Deliverable%201%20coefficients.png)
 
 ### Summary Stats:
